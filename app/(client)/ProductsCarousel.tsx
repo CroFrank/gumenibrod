@@ -16,8 +16,13 @@ type Product = {
   brand: string
   category: string
 }
+type ProductsCarouselProps = {
+  productsIstaknuto: Product[]
+}
 
-export default function ProductsCarousel({ productsIstaknuto }) {
+export default function ProductsCarousel({
+  productsIstaknuto,
+}: ProductsCarouselProps) {
   const sliderRef = useRef<HTMLDivElement | null>(null)
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -81,8 +86,8 @@ export default function ProductsCarousel({ productsIstaknuto }) {
       </button>
       <section
         ref={(el) => {
-          ref(el)
-          sliderRef.current = el
+          ref(el as HTMLDivElement)
+          sliderRef.current = el as HTMLDivElement | null
         }}
         className="keen-slider"
       >
@@ -91,7 +96,7 @@ export default function ProductsCarousel({ productsIstaknuto }) {
             <div key={product._id + 1} className="keen-slider__slide">
               <FeaturedProductCard product={product} />
             </div>
-            <div key={product._id} className="keen-slider__slide">
+            <div key={product._id + 2} className="keen-slider__slide">
               <FeaturedProductCard product={product} />
             </div>
           </>

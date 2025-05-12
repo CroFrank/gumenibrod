@@ -24,9 +24,6 @@ export default function About() {
             corporis maiores officiis facere dignissimos aspernatur earum, eius
             beatae cupiditate sunt ut.
           </p>
-          <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
-            Learn More
-          </button>
         </div>
       </div>
     </section>

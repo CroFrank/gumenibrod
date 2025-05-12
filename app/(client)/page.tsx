@@ -9,10 +9,13 @@ export default async function Home() {
   return (
     <div>
       <HomePageHero />
-      <div className="relative">
-        <h2 className="heading-2">Istaknuti proizvodi</h2>
+      <div className="relative bg-gray-100 pt-16">
+        <h2 className="heading-2">ISTAKNUTO</h2>
         <ProductsCarousel productsIstaknuto={productsIstaknuto} />
-        <ProductsCarousel productsIstaknuto={productsIstaknuto} />
+        <div className="bg-white pt-16">
+          <h2 className="heading-2">NOVO U PONUDI</h2>
+          <ProductsCarousel productsIstaknuto={productsIstaknuto} />
+        </div>
       </div>
       <About />
     </div>

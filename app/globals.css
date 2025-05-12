@@ -2,6 +2,6 @@
 
 @layer components {
   .heading-2 {
-    @apply text-2xl font-bold tracking-wide mb-10 md:text-4xl text-center bg-gradient-to-b from-blue-400 to-blue-800 text-transparent bg-clip-text;
+    @apply text-2xl font-bold tracking-wide mb-10 md:text-4xl text-center text-gray-800;
   }
 }
