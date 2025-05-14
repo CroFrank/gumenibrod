@@ -1,5 +1,4 @@
-"use client"
-
+import Link from "next/link"
 import React from "react"
 
 export default function HomePageHero() {
@@ -29,12 +28,12 @@ export default function HomePageHero() {
         <p className="mb-20 text-lg md:text-2xl text-white p-2 tracking-wider">
           Široka ponuda gumenih brodova i popratne opreme vrhunske kvalitete
         </p>
-        <a
-          href="#kontakt"
+        <Link
+          href="/kontakt"
           className="border-2 border-white text-white font-semibold px-6 py-3 rounded transition hover:scale-105"
         >
           KONTAKT
-        </a>
+        </Link>
       </div>
     </section>
   )

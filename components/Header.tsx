@@ -20,10 +20,10 @@ export default function Header() {
           <Link href="/products" className="hover:text-blue-600">
             PONUDA
           </Link>
-          <Link href="/about" className="hover:text-blue-600">
+          <Link href="/faq" className="hover:text-blue-600">
             FAQ
           </Link>
-          <Link href="/contact" className="hover:text-blue-600">
+          <Link href="/kontakt" className="hover:text-blue-600">
             KONTAKT
           </Link>
         </nav>

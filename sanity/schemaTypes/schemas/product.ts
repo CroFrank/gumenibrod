@@ -5,6 +5,7 @@ export default defineType({
   name: "product",
   title: "Proizvod",
   type: "document",
+  validation: (Rule) => Rule.required().error("Naziv je obavezan"),
   icon: PackageIcon,
   fields: [
     defineField({ name: "title", title: "Naziv", type: "string" }),
@@ -13,6 +14,7 @@ export default defineType({
       title: "Slug",
       type: "slug",
       options: { source: "title" },
+      validation: (Rule) => Rule.required().error("Slug je obavezan"),
     }),
     defineField({ name: "description", title: "Opis", type: "text" }),
     defineField({
@@ -30,8 +32,10 @@ export default defineType({
         list: [
           { title: "Kolibri", value: "kolibri" },
           { title: "Gala", value: "gala" },
+          { title: "Galaxy", value: "galaxy" },
+          { title: "Adventure", value: "adventure" },
         ],
-        layout: "radio", // or 'dropdown'
+        layout: "radio",
       },
     }),
     defineField({
@@ -44,7 +48,7 @@ export default defineType({
           { title: "Veslački Gumeni brod", value: "veslacki-gumeni-brod" },
           { title: "Dodaci", value: "dodaci" },
         ],
-        layout: "radio", // or 'dropdown'
+        layout: "radio",
       },
     }),
     defineField({
@@ -55,7 +59,7 @@ export default defineType({
       options: {
         list: [
           { title: "Istaknuto", value: "istaknuto" },
-          { title: "Akcija", value: "akcija" },
+          { title: "Novo", value: "novo" },
         ],
         layout: "grid",
       },
