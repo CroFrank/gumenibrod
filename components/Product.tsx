@@ -84,12 +84,9 @@ export default function Product({ product }: { product: SimplifiedProduct }) {
 
             {/* Features */}
             <div>
-              <h3 className="text-lg font-semibold mb-2">Key Features:</h3>
+              <h3 className="text-lg font-semibold mb-2">Značajke:</h3>
               <ul className="list-disc list-inside text-gray-700">
-                <li>Industry-leading noise cancellation</li>
-                <li>30-hour battery life</li>
-                <li>Touch sensor controls</li>
-                <li>Speak-to-chat technology</li>
+                <li> {product.category}</li>
               </ul>
             </div>
           </div>

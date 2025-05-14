@@ -17,7 +17,7 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 text-gray-700 tracking-wider">
-          <Link href="/products" className="hover:text-blue-600">
+          <Link href="/proizvodi" className="hover:text-blue-600">
             PONUDA
           </Link>
           <Link href="/faq" className="hover:text-blue-600">
@@ -53,13 +53,25 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden px-4 py-4 text-center">
           <nav className="flex flex-col gap-3 text-gray-700 tracking-wider">
-            <Link href="/products" className=" hover:text-blue-600">
+            <Link
+              href="/proizvodi"
+              className=" hover:text-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
               PONUDA
             </Link>
-            <Link href="/about" className=" hover:text-blue-600">
+            <Link
+              href="/faq"
+              className=" hover:text-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
               FAQ
             </Link>
-            <Link href="/contact" className=" hover:text-blue-600">
+            <Link
+              href="/kontakt"
+              className=" hover:text-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
               KONTAKT
             </Link>
           </nav>

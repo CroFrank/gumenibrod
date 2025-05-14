@@ -120,7 +120,7 @@ export default function ProductCard({
 
       {/* Details */}
       <div className="px-5 pb-5 pt-4 flex flex-col flex-1">
-        <Link href={`/products/${product.slug || product.slug}`}>
+        <Link href={`/proizvodi/${product.slug || product.slug}`}>
           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-2">
             {product.title}
           </h5>
@@ -135,7 +135,7 @@ export default function ProductCard({
 
         <div className="flex items-center justify-between mt-auto pt-4">
           <Button variant="outline">
-            <Link href={`/products/${product.slug}`}>Više info</Link>
+            <Link href={`/proizvodi/${product.slug}`}>Više info</Link>
           </Button>
           <Button>Dodaj u košaricu</Button>
         </div>
