@@ -6,47 +6,23 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { SanityImageDimensions } from "@/sanity/types"
+import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react"
 import { SanityAsset } from "@sanity/image-url/lib/types/types"
+import { Product } from "@/sanity/types"
 
-export type SimplifiedProduct = {
-  _id: string
-  title: string | null
-  price: number | null
-  description: string | null
-  slug: string | null
-  brand: "adventure" | "gala" | "galaxy" | "kolibri" | null
-  category: "dodaci" | "motorni-gumeni-brod" | "veslacki-gumeni-brod" | null
-  featured: Array<string> | null
-  images: Array<{
-    asset: {
-      _id: string
-      url: string | null
-      metadata: {
-        lqip: string | null
-        dimensions: SanityImageDimensions | null
-      } | null
-    } | null
-    alt: null
-  }> | null
-}
-
-// Then use this in ProductCard props
 type ProductCardProps = {
-  product: SimplifiedProduct
+  product: Product
   disableSlider?: boolean
 }
 
 export default function ProductCard({
   product,
-  disableSlider = true,
+  disableSlider,
 }: ProductCardProps) {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1 },
   })
-
   const hasMultipleImages = (product.images?.length ?? 0) > 1
 
   return (
@@ -59,7 +35,7 @@ export default function ProductCard({
           </div>
         )}
         {product.featured?.includes("novo") && (
-          <div className="absolute top-4 left-4 bg-blue-500 text-xs px-3 py-2 rounded-full z-20 animate-pulse font-medium">
+          <div className="absolute top-4 left-4 bg-blue-500 text-xs px-3 py-2 rounded-full z-20 animate-pulse font-medium text-white">
             NOVO!
           </div>
         )}
@@ -78,7 +54,7 @@ export default function ProductCard({
           <div ref={sliderRef} className="keen-slider w-30">
             {product.images?.map((image: SanityAsset) => (
               <Image
-                key={product._id}
+                key={image._key}
                 className="w-full h-64 object-contain object-center keen-slider__slide"
                 src={urlFor(image.asset).url()}
                 alt={product.title ?? "Product Image"}
@@ -120,7 +96,7 @@ export default function ProductCard({
 
       {/* Details */}
       <div className="px-5 pb-5 pt-4 flex flex-col flex-1">
-        <Link href={`/proizvodi/${product.slug || product.slug}`}>
+        <Link href={`/proizvodi/${product.slug?.current}`}>
           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-2">
             {product.title}
           </h5>
@@ -130,14 +106,16 @@ export default function ProductCard({
         </p>
 
         <span className="text-lg font-semibold text-gray-900 dark:text-white">
-          {product.price}€
+          {product.price ? product.price + " €" : "Cijena na upit"}
         </span>
 
         <div className="flex items-center justify-between mt-auto pt-4">
           <Button variant="outline">
-            <Link href={`/proizvodi/${product.slug}`}>Više info</Link>
+            <Link href={`/proizvodi/${product.slug?.current}`}>Više info</Link>
           </Button>
-          <Button>Dodaj u košaricu</Button>
+          <Button>
+            Dodaj u <ShoppingCart />
+          </Button>
         </div>
       </div>
     </div>

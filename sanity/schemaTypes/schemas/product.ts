@@ -44,9 +44,10 @@ export default defineType({
       type: "string",
       options: {
         list: [
-          { title: "Motorni Gumeni brod", value: "motorni-gumeni-brod" },
-          { title: "Veslački Gumeni brod", value: "veslacki-gumeni-brod" },
-          { title: "Dodaci", value: "dodaci" },
+          { title: "Motorni", value: "motorni" },
+          { title: "Veslački", value: "veslacki" },
+          { title: "Kanu", value: "kanu" },
+          { title: "Katamaran", value: "katamaran" },
         ],
         layout: "radio",
       },

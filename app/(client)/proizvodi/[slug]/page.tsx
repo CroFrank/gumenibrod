@@ -1,4 +1,4 @@
-import Product from "@/components/Product"
+import ProductPageItem from "@/components/ProductPageItem"
 import { client } from "@/sanity/lib/client"
 import { PRODUCT_QUERY } from "@/sanity/lib/queries"
 
@@ -13,5 +13,5 @@ export default async function ProductPage(props: Props) {
 
   const product = await client.fetch(PRODUCT_QUERY, { slug })
 
-  return <Product product={product} />
+  return <ProductPageItem product={product} />
 }

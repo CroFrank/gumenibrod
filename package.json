@@ -12,6 +12,8 @@
     "typegen": "sanity schema extract && sanity typegen generate"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.13",
+    "@radix-ui/react-select": "^2.2.4",
     "@radix-ui/react-slot": "^1.2.2",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.88.2",
@@ -21,10 +23,12 @@
     "lucide-react": "^0.509.0",
     "next": "15.3.2",
     "next-sanity": "^9.11.0",
+    "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-is": "^19.1.0",
     "sanity": "^3.88.2",
+    "sonner": "^2.0.3",
     "styled-components": "^6.1.18",
     "tailwind-merge": "^3.3.0"
   },

@@ -162,9 +162,38 @@ export type Slug = {
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Product | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
-// Variable: PRODUCTS_QUERY
-// Query: *[_type == "product"]{  _id,  title,  price,  description,  "slug": slug.current,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  }}
-export type PRODUCTS_QUERYResult = Array<{
+// Variable: ALL_PRODUCTS_QUERY
+// Query: *[_type == "product"]
+export type ALL_PRODUCTS_QUERYResult = Array<{
+  _id: string;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
+  category?: "dodaci" | "motorni-gumeni-brod" | "veslacki-gumeni-brod";
+  featured?: Array<string>;
+}>;
+// Variable: FEATURED_PRODUCTS_QUERY
+// Query: *[_type == "product" && defined(featured) && count(featured) > 0]{  _id,  title,  price,  description,  "slug": slug.current,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  }}
+export type FEATURED_PRODUCTS_QUERYResult = Array<{
   _id: string;
   title: string | null;
   price: number | null;
@@ -185,9 +214,32 @@ export type PRODUCTS_QUERYResult = Array<{
     alt: null;
   }> | null;
 }>;
-// Variable: FEATURED_PRODUCTS_QUERY
-// Query: *[_type == "product" && defined(featured) && count(featured) > 0]{  _id,  title,  price,  description,  "slug": slug.current,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  }}
-export type FEATURED_PRODUCTS_QUERYResult = Array<{
+// Variable: PRODUCT_QUERY
+// Query: *[_type == "product" && slug.current == $slug][0]{  _id,  title,  price,  description,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  },  "slug": slug.current}
+export type PRODUCT_QUERYResult = {
+  _id: string;
+  title: string | null;
+  price: number | null;
+  description: string | null;
+  brand: "adventure" | "gala" | "galaxy" | "kolibri" | null;
+  category: "dodaci" | "motorni-gumeni-brod" | "veslacki-gumeni-brod" | null;
+  featured: Array<string> | null;
+  images: Array<{
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+        dimensions: SanityImageDimensions | null;
+      } | null;
+    } | null;
+    alt: null;
+  }> | null;
+  slug: string | null;
+} | null;
+// Variable: PRODUCTS_BY_BRAND_QUERY
+// Query: *[_type == "product" && (!defined($brands) || brand == $brands)]    | order(_createdAt desc) {       _id,  title,  price,  description,  "slug": slug.current,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  }}
+export type PRODUCTS_BY_BRAND_QUERYResult = Array<{
   _id: string;
   title: string | null;
   price: number | null;
@@ -213,7 +265,9 @@ export type FEATURED_PRODUCTS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"product\"]{\n  _id,\n  title,\n  price,\n  description,\n  \"slug\": slug.current,\n  brand,\n  category,\n  featured,\n  images[]{\n    asset->{\n      _id,\n      url,\n      metadata { lqip, dimensions }\n    },\n    alt\n  }\n}": PRODUCTS_QUERYResult;
+    "*[_type == \"product\"]": ALL_PRODUCTS_QUERYResult;
     "*[_type == \"product\" && defined(featured) && count(featured) > 0]{\n  _id,\n  title,\n  price,\n  description,\n  \"slug\": slug.current,\n  brand,\n  category,\n  featured,\n  images[]{\n    asset->{\n      _id,\n      url,\n      metadata { lqip, dimensions }\n    },\n    alt\n  }\n}": FEATURED_PRODUCTS_QUERYResult;
+    "*[_type == \"product\" && slug.current == $slug][0]{\n  _id,\n  title,\n  price,\n  description,\n  brand,\n  category,\n  featured,\n  images[]{\n    asset->{\n      _id,\n      url,\n      metadata { lqip, dimensions }\n    },\n    alt\n  },\n  \"slug\": slug.current\n}": PRODUCT_QUERYResult;
+    "  \n  *[_type == \"product\" && (!defined($brands) || brand == $brands)]  \n  | order(_createdAt desc) {  \n     _id,\n  title,\n  price,\n  description,\n  \"slug\": slug.current,\n  brand,\n  category,\n  featured,\n  images[]{\n    asset->{\n      _id,\n      url,\n      metadata { lqip, dimensions }\n    },\n    alt\n  }\n}\n": PRODUCTS_BY_BRAND_QUERYResult;
   }
 }

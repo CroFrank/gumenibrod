@@ -3,13 +3,14 @@ import About from "../../components/About"
 import HomePageHero from "../../components/HomePageHero"
 import ProductsCarousel from "../../components/ProductsCarousel"
 import { FEATURED_PRODUCTS_QUERY } from "@/sanity/lib/queries"
+import { Product } from "@/sanity/types"
 
 export default async function Home() {
   const featuredProducts = await client.fetch(FEATURED_PRODUCTS_QUERY)
-  const productsNovo = featuredProducts.filter((product) =>
+  const productsNovo = featuredProducts.filter((product: Product) =>
     product.featured?.includes("novo")
   )
-  const productsIstaknuto = featuredProducts.filter((product) =>
+  const productsIstaknuto = featuredProducts.filter((product: Product) =>
     product.featured?.includes("istaknuto")
   )
 

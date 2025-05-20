@@ -1,13 +1,13 @@
 "use client"
 
-import { SimplifiedProduct } from "@/components/ProductCard"
 import { Button } from "@/components/ui/button"
 import { urlFor } from "@/sanity/lib/image"
+import { Product } from "@/sanity/types"
 import { SanityImageSource } from "@sanity/image-url/lib/types/types"
 import Image from "next/image"
-import { useState } from "react"
+import React, { useState } from "react"
 
-export default function Product({ product }: { product: SimplifiedProduct }) {
+export default function ProductPageItem({ product }: { product: Product }) {
   const [mainImage, setMainImage] = useState<SanityImageSource | null>(
     product.images?.[0] || null
   )
@@ -21,10 +21,10 @@ export default function Product({ product }: { product: SimplifiedProduct }) {
             {product.images?.[0]?.asset && (
               <Image
                 src={mainImage ? urlFor(mainImage).url() : "/placeholder.png"}
-                width={300}
-                height={300}
+                width={600}
+                height={400}
                 alt={product.title ?? "Product Image"}
-                className="w-full h-auto rounded-lg shadow-md mb-4"
+                className="w-full h-96 rounded-lg shadow-md mb-4 object-contain object-center"
               />
             )}
             {product.images?.[0]?.asset && (
@@ -50,14 +50,29 @@ export default function Product({ product }: { product: SimplifiedProduct }) {
 
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Asortiman</h3>
-              <div className="flex space-x-2">{product.brand}</div>
+              <div className="flex space-x-2 uppercase">{product.brand}</div>
             </div>
-            <div className="mb-4">
-              <span className="text-2xl font-bold mr-2">{product.price}€</span>
-              {/* <span className="text-gray-500 line-through">$399.99</span> */}
+            {/* Features */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-2">Kategorija</h3>
+              <div className="flex space-x-2 uppercase">{product.category}</div>
             </div>
 
-            <p className="text-gray-700 mb-6">{product.description}</p>
+            <p className="text-gray-700 mb-6">
+              {product.description?.split("\n").map((line, i) => (
+                <React.Fragment key={i}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </p>
+
+            <div className="mb-4">
+              <span className="text-2xl font-bold mr-2">
+                {product.price ? product.price + " €" : "Cijena na upit"}
+              </span>
+              {/* <span className="text-gray-500 line-through">$399.99</span> */}
+            </div>
 
             {/* Quantity */}
             <div className="mb-6">
@@ -80,14 +95,6 @@ export default function Product({ product }: { product: SimplifiedProduct }) {
             {/* Buttons */}
             <div className="flex space-x-4 mb-6">
               <Button>Dodaj u košaricu</Button>
-            </div>
-
-            {/* Features */}
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Značajke:</h3>
-              <ul className="list-disc list-inside text-gray-700">
-                <li> {product.category}</li>
-              </ul>
             </div>
           </div>
         </div>

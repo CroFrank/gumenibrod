@@ -1,21 +1,41 @@
 export default function Impressum() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen px-4 py-12 flex flex-col items-center bg-gray-50 pt-40">
       <h1>Impressum</h1>
-      <div className="text-lg text-gray-600 my-5">
-        <h2 className="text-xl">Podaci o poslovnom subjektu:</h2>
-        <p>GUMENI BROD d.o.o.</p>
-        <p>OIB:46696043584</p>
-        <p>Osječka ulica 9, Velika Kosnica</p>
-        <p>10410 Velika Gorica</p>
-        <p>Tel: 0038591 1191 091</p>
-        <p>Fax: 003851 6232 119</p>
-        <p>E-mail adrese:</p>
-        <ul>
-          <li>gumenibrod@gmail.com </li>
-          <li>gumenibrodsp@gmail.com </li>
-          <li>gumenibrodzg@gmail.com</li>
-        </ul>
+      <div className="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-md">
+        <div className="space-y-4 text-gray-700 text-base">
+          <h2 className="text-xl font-semibold text-gray-800">
+            Podaci o poslovnom subjektu:
+          </h2>
+
+          <p>
+            <strong>Naziv:</strong> GUMENI BROD d.o.o.
+          </p>
+          <p>
+            <strong>OIB:</strong> 46696043584
+          </p>
+          <p>
+            <strong>Adresa:</strong> Osječka ulica 9, Velika Kosnica
+          </p>
+          <p>
+            <strong>Pošta:</strong> 10410 Velika Gorica
+          </p>
+          <p>
+            <strong>Telefon:</strong> +385 91 1191 091
+          </p>
+          <p>
+            <strong>Fax:</strong> +385 1 6232 119
+          </p>
+
+          <div>
+            <p className="font-medium">E-mail adrese:</p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li>gumenibrod@gmail.com</li>
+              <li>gumenibrodsp@gmail.com</li>
+              <li>gumenibrodzg@gmail.com</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )

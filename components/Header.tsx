@@ -8,7 +8,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="bg-white/80 shadow-md fixed top-0 z-50 w-full backdrop-blur-sm py-4">
+    <header className="bg-white/80 shadow-md fixed top-0 z-40 w-full backdrop-blur-sm py-4">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold text-blue-600">
@@ -16,15 +16,18 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 text-gray-700 tracking-wider">
+        <nav className="hidden md:flex gap-8 text-gray-700 tracking-wider uppercase">
+          <Link href="/" className="hover:text-blue-600">
+            naslovnica
+          </Link>
           <Link href="/proizvodi" className="hover:text-blue-600">
-            PONUDA
+            ponuda
           </Link>
           <Link href="/faq" className="hover:text-blue-600">
-            FAQ
+            faq
           </Link>
           <Link href="/kontakt" className="hover:text-blue-600">
-            KONTAKT
+            kontakt
           </Link>
         </nav>
 
@@ -52,27 +55,34 @@ export default function Header() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden px-4 py-4 text-center">
-          <nav className="flex flex-col gap-3 text-gray-700 tracking-wider">
+          <nav className="flex flex-col gap-3 text-gray-700 tracking-wider uppercase">
+            <Link
+              href="/"
+              className=" hover:text-blue-600"
+              onClick={() => setIsOpen(false)}
+            >
+              naslovnica
+            </Link>
             <Link
               href="/proizvodi"
               className=" hover:text-blue-600"
               onClick={() => setIsOpen(false)}
             >
-              PONUDA
+              ponuda
             </Link>
             <Link
               href="/faq"
               className=" hover:text-blue-600"
               onClick={() => setIsOpen(false)}
             >
-              FAQ
+              faq
             </Link>
             <Link
               href="/kontakt"
               className=" hover:text-blue-600"
               onClick={() => setIsOpen(false)}
             >
-              KONTAKT
+              kontakt
             </Link>
           </nav>
         </div>

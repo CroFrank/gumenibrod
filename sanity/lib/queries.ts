@@ -1,60 +1,21 @@
 import { defineQuery } from "next-sanity"
 
-export const PRODUCTS_QUERY = defineQuery(`*[_type == "product"]{
-  _id,
-  title,
-  price,
-  description,
-  "slug": slug.current,
-  brand,
-  category,
-  featured,
-  images[]{
-    asset->{
-      _id,
-      url,
-      metadata { lqip, dimensions }
-    },
-    alt
-  }
-}`)
+export const ALL_PRODUCTS_QUERY = defineQuery(`*[_type == "product"]`)
 
-export const FEATURED_PRODUCTS_QUERY =
-  defineQuery(`*[_type == "product" && defined(featured) && count(featured) > 0]{
-  _id,
-  title,
-  price,
-  description,
-  "slug": slug.current,
-  brand,
-  category,
-  featured,
-  images[]{
-    asset->{
-      _id,
-      url,
-      metadata { lqip, dimensions }
-    },
-    alt
-  }
-}`)
+export const CATEGORIES_QUERY = defineQuery(`*[_type == "product" &&
+  (
+    !defined($categories) || $categories == null || count($categories) == 0 || category in $categories
+  ) &&
+  (
+    !defined($brands) || $brands == null || count($brands) == 0 || brand in $brands
+  )
+]
+`)
 
-export const PRODUCT_QUERY =
-  defineQuery(`*[_type == "product" && slug.current == $slug][0]{
-  _id,
-  title,
-  price,
-  description,
-  brand,
-  category,
-  featured,
-  images[]{
-    asset->{
-      _id,
-      url,
-      metadata { lqip, dimensions }
-    },
-    alt
-  },
-  "slug": slug.current
-}`)
+export const FEATURED_PRODUCTS_QUERY = defineQuery(
+  `*[_type == "product" && defined(featured) && count(featured) > 0]`
+)
+
+export const PRODUCT_QUERY = defineQuery(
+  `*[_type == "product" && slug.current == $slug][0]`
+)
