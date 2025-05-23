@@ -92,7 +92,7 @@ export type Product = {
   }>;
   price?: number;
   brand?: "kolibri" | "gala" | "galaxy" | "adventure";
-  category?: "motorni-gumeni-brod" | "veslacki-gumeni-brod" | "dodaci";
+  category?: "motorni" | "veslacki" | "kanu" | "katamaran";
   featured?: Array<string>;
 };
 
@@ -188,86 +188,104 @@ export type ALL_PRODUCTS_QUERYResult = Array<{
   }>;
   price?: number;
   brand?: "adventure" | "gala" | "galaxy" | "kolibri";
-  category?: "dodaci" | "motorni-gumeni-brod" | "veslacki-gumeni-brod";
+  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
+  featured?: Array<string>;
+}>;
+// Variable: CATEGORIES_QUERY
+// Query: *[_type == "product" &&  (    !defined($categories) || $categories == null || count($categories) == 0 || category in $categories  ) &&  (    !defined($brands) || $brands == null || count($brands) == 0 || brand in $brands  )]
+export type CATEGORIES_QUERYResult = Array<{
+  _id: string;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
+  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
   featured?: Array<string>;
 }>;
 // Variable: FEATURED_PRODUCTS_QUERY
-// Query: *[_type == "product" && defined(featured) && count(featured) > 0]{  _id,  title,  price,  description,  "slug": slug.current,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  }}
+// Query: *[_type == "product" && defined(featured) && count(featured) > 0]
 export type FEATURED_PRODUCTS_QUERYResult = Array<{
   _id: string;
-  title: string | null;
-  price: number | null;
-  description: string | null;
-  slug: string | null;
-  brand: "adventure" | "gala" | "galaxy" | "kolibri" | null;
-  category: "dodaci" | "motorni-gumeni-brod" | "veslacki-gumeni-brod" | null;
-  featured: Array<string> | null;
-  images: Array<{
-    asset: {
-      _id: string;
-      url: string | null;
-      metadata: {
-        lqip: string | null;
-        dimensions: SanityImageDimensions | null;
-      } | null;
-    } | null;
-    alt: null;
-  }> | null;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
+  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
+  featured?: Array<string>;
 }>;
-// Variable: PRODUCT_QUERY
-// Query: *[_type == "product" && slug.current == $slug][0]{  _id,  title,  price,  description,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  },  "slug": slug.current}
-export type PRODUCT_QUERYResult = {
+// Variable: SPECIFIC_PRODUCT_QUERY
+// Query: *[_type == "product" && slug.current == $slug][0]
+export type SPECIFIC_PRODUCT_QUERYResult = {
   _id: string;
-  title: string | null;
-  price: number | null;
-  description: string | null;
-  brand: "adventure" | "gala" | "galaxy" | "kolibri" | null;
-  category: "dodaci" | "motorni-gumeni-brod" | "veslacki-gumeni-brod" | null;
-  featured: Array<string> | null;
-  images: Array<{
-    asset: {
-      _id: string;
-      url: string | null;
-      metadata: {
-        lqip: string | null;
-        dimensions: SanityImageDimensions | null;
-      } | null;
-    } | null;
-    alt: null;
-  }> | null;
-  slug: string | null;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
+  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
+  featured?: Array<string>;
 } | null;
-// Variable: PRODUCTS_BY_BRAND_QUERY
-// Query: *[_type == "product" && (!defined($brands) || brand == $brands)]    | order(_createdAt desc) {       _id,  title,  price,  description,  "slug": slug.current,  brand,  category,  featured,  images[]{    asset->{      _id,      url,      metadata { lqip, dimensions }    },    alt  }}
-export type PRODUCTS_BY_BRAND_QUERYResult = Array<{
-  _id: string;
-  title: string | null;
-  price: number | null;
-  description: string | null;
-  slug: string | null;
-  brand: "adventure" | "gala" | "galaxy" | "kolibri" | null;
-  category: "dodaci" | "motorni-gumeni-brod" | "veslacki-gumeni-brod" | null;
-  featured: Array<string> | null;
-  images: Array<{
-    asset: {
-      _id: string;
-      url: string | null;
-      metadata: {
-        lqip: string | null;
-        dimensions: SanityImageDimensions | null;
-      } | null;
-    } | null;
-    alt: null;
-  }> | null;
-}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"product\"]": ALL_PRODUCTS_QUERYResult;
-    "*[_type == \"product\" && defined(featured) && count(featured) > 0]{\n  _id,\n  title,\n  price,\n  description,\n  \"slug\": slug.current,\n  brand,\n  category,\n  featured,\n  images[]{\n    asset->{\n      _id,\n      url,\n      metadata { lqip, dimensions }\n    },\n    alt\n  }\n}": FEATURED_PRODUCTS_QUERYResult;
-    "*[_type == \"product\" && slug.current == $slug][0]{\n  _id,\n  title,\n  price,\n  description,\n  brand,\n  category,\n  featured,\n  images[]{\n    asset->{\n      _id,\n      url,\n      metadata { lqip, dimensions }\n    },\n    alt\n  },\n  \"slug\": slug.current\n}": PRODUCT_QUERYResult;
-    "  \n  *[_type == \"product\" && (!defined($brands) || brand == $brands)]  \n  | order(_createdAt desc) {  \n     _id,\n  title,\n  price,\n  description,\n  \"slug\": slug.current,\n  brand,\n  category,\n  featured,\n  images[]{\n    asset->{\n      _id,\n      url,\n      metadata { lqip, dimensions }\n    },\n    alt\n  }\n}\n": PRODUCTS_BY_BRAND_QUERYResult;
+    "*[_type == \"product\" &&\n  (\n    !defined($categories) || $categories == null || count($categories) == 0 || category in $categories\n  ) &&\n  (\n    !defined($brands) || $brands == null || count($brands) == 0 || brand in $brands\n  )\n]\n": CATEGORIES_QUERYResult;
+    "*[_type == \"product\" && defined(featured) && count(featured) > 0]": FEATURED_PRODUCTS_QUERYResult;
+    "*[_type == \"product\" && slug.current == $slug][0]": SPECIFIC_PRODUCT_QUERYResult;
   }
 }

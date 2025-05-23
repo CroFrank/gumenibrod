@@ -17,7 +17,11 @@ export default function ProductsCarousel({
   productsIstaknuto,
   productsNovo,
 }: FeaturedProductsProps) {
-  const data = productsNovo ?? productsIstaknuto ?? []
+  const data =
+    productsNovo && productsNovo.length > 0
+      ? productsNovo
+      : (productsIstaknuto ?? [])
+
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free-snap",
@@ -42,13 +46,19 @@ export default function ProductsCarousel({
   })
 
   return (
-    <div className="relative px-4 py-12">
+    <div
+      id={`${productsIstaknuto} ? "istaknuti-proizvodi-carousel" : "novi-proizvodi-carousel"}`}
+      className="relative px-4 py-12"
+      role="region"
+      aria-label="Istaknuti proizvodi carousel"
+    >
       {/* Navigation */}
       <div className="absolute inset-y-0 left-0 z-10 flex items-center">
         <Button
           variant="ghost"
           size="icon"
           onClick={() => instanceRef.current?.prev()}
+          aria-label="Scroll lijevo"
         >
           <ChevronLeft />
         </Button>
@@ -58,13 +68,17 @@ export default function ProductsCarousel({
           variant="ghost"
           size="icon"
           onClick={() => instanceRef.current?.next()}
+          aria-label="Scroll desno"
         >
           <ChevronRight />
         </Button>
       </div>
 
       {/* Carousel */}
-      <div ref={sliderRef} className="keen-slider container mx-auto">
+      <div
+        ref={sliderRef}
+        className="keen-slider container mx-auto overflow-hidden"
+      >
         {data.map((product) => (
           <div key={product._id} className="keen-slider__slide">
             <ProductCard product={product} disableSlider />

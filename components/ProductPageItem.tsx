@@ -1,11 +1,11 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { urlFor } from "@/sanity/lib/image"
 import { Product } from "@/sanity/types"
 import { SanityImageSource } from "@sanity/image-url/lib/types/types"
 import Image from "next/image"
 import React, { useState } from "react"
+import AddToCartButton from "./AddToCartButton"
 
 export default function ProductPageItem({ product }: { product: Product }) {
   const [mainImage, setMainImage] = useState<SanityImageSource | null>(
@@ -94,7 +94,7 @@ export default function ProductPageItem({ product }: { product: Product }) {
 
             {/* Buttons */}
             <div className="flex space-x-4 mb-6">
-              <Button>Dodaj u košaricu</Button>
+              <AddToCartButton product={product} />
             </div>
           </div>
         </div>

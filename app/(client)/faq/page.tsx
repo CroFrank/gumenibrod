@@ -1,3 +1,5 @@
+'use client"'
+
 import FaqTable from "@/components/FaqTable"
 
 export default function FaqPage() {

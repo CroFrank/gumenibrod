@@ -6,9 +6,11 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { SanityAsset } from "@sanity/image-url/lib/types/types"
 import { Product } from "@/sanity/types"
+import { useMemo } from "react"
+import AddToCartButton from "./AddToCartButton"
 
 type ProductCardProps = {
   product: Product
@@ -23,7 +25,10 @@ export default function ProductCard({
     loop: true,
     slides: { perView: 1 },
   })
-  const hasMultipleImages = (product.images?.length ?? 0) > 1
+  const hasMultipleImages = useMemo(
+    () => (product.images?.length ?? 0) > 1,
+    [product.images]
+  )
 
   return (
     <div className="w-full max-w-sm h-[485px] bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col mx-auto">
@@ -46,9 +51,10 @@ export default function ProductCard({
           <Image
             className="w-full h-64 object-contain object-center"
             src={urlFor(product.images?.[0]).url()}
-            alt={product.title ?? "Product Image"}
+            alt={product.title ?? "Slika proizvoda"}
             width={300}
             height={300}
+            loading="lazy"
           />
         ) : (
           <div ref={sliderRef} className="keen-slider w-30">
@@ -57,9 +63,10 @@ export default function ProductCard({
                 key={image._key}
                 className="w-full h-64 object-contain object-center keen-slider__slide"
                 src={urlFor(image.asset).url()}
-                alt={product.title ?? "Product Image"}
+                alt={product.title ?? "Slika proizvoda"}
                 width={300}
                 height={300}
+                loading="lazy"
               />
             ))}
           </div>
@@ -113,9 +120,7 @@ export default function ProductCard({
           <Button variant="outline">
             <Link href={`/proizvodi/${product.slug?.current}`}>Više info</Link>
           </Button>
-          <Button>
-            Dodaj u <ShoppingCart />
-          </Button>
+          <AddToCartButton product={product} />
         </div>
       </div>
     </div>

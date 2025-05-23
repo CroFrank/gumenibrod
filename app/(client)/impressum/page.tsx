@@ -1,6 +1,6 @@
 export default function Impressum() {
   return (
-    <div className="min-h-screen px-4 py-12 flex flex-col items-center bg-gray-50 pt-40">
+    <section className="min-h-screen px-4 py-12 flex flex-col items-center bg-gray-50 pt-40">
       <h1>Impressum</h1>
       <div className="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-md">
         <div className="space-y-4 text-gray-700 text-base">
@@ -37,6 +37,6 @@ export default function Impressum() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

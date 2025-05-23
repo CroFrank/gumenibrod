@@ -17,6 +17,69 @@ body {
   }
 }
 
+.logos {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin-right: 2px;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  animation: 38s slide infinite linear;
+  display: inline-block;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 45px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(
+    to left,
+    rgba(243, 244, 246, 0),
+    rgba(243, 244, 246, 1)
+  );
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(
+    to right,
+    rgba(243, 244, 246, 0),
+    rgba(243, 244, 246, 1)
+  );
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .logos-slide {
+    animation: 50s slide infinite linear;
+  }
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

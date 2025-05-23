@@ -3,9 +3,11 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, ShoppingCart } from "lucide-react"
+import { useCartStore } from "@/stores/useCartStore"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const { items } = useCartStore()
 
   return (
     <header className="bg-white/80 shadow-md fixed top-0 z-40 w-full backdrop-blur-sm py-4">
@@ -38,12 +40,12 @@ export default function Header() {
             <option value="de">DE</option>
             <option value="hr">HR</option>
           </select>
-          <button className="relative">
+          <Link className="relative" href="/kosarica">
             <ShoppingCart className="w-6 h-6 text-gray-700" />
             <span className="absolute -top-2 -right-2 text-xs bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
-              3
+              {items.length}
             </span>
-          </button>
+          </Link>
 
           {/* Hamburger */}
           <button className="md:hidden ml-2" onClick={() => setIsOpen(!isOpen)}>

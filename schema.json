@@ -504,15 +504,19 @@
           "of": [
             {
               "type": "string",
-              "value": "motorni-gumeni-brod"
+              "value": "motorni"
             },
             {
               "type": "string",
-              "value": "veslacki-gumeni-brod"
+              "value": "veslacki"
             },
             {
               "type": "string",
-              "value": "dodaci"
+              "value": "kanu"
+            },
+            {
+              "type": "string",
+              "value": "katamaran"
             }
           ]
         },
