@@ -3,8 +3,10 @@ import { createClient } from "next-sanity"
 import { apiVersion, dataset, projectId } from "../env"
 import {
   ALL_PRODUCTS_QUERY,
+  CATEGORIES_QUERY,
   ISTAKNUTO_PRODUCTS_QUERY,
   NOVO_PRODUCTS_QUERY,
+  SPECIFIC_PRODUCT_QUERY,
 } from "./queries"
 
 export const client = createClient({
@@ -15,11 +17,20 @@ export const client = createClient({
 })
 
 export const getAllProducts = async () => {
-  return await client.fetch(ALL_PRODUCTS_QUERY, { start: 0, end: 8 })
+  return await client.fetch(ALL_PRODUCTS_QUERY)
 }
 
-export const getSpecificProduct = async () => {
-  return await client.fetch(ALL_PRODUCTS_QUERY, { start: 0, end: 8 })
+export const getSpecificProduct = async ({ slug }: { slug: string }) => {
+  return await client.fetch(SPECIFIC_PRODUCT_QUERY, { slug })
+}
+export const getFilteredProducts = async ({
+  categories,
+  brands,
+}: {
+  categories: string[]
+  brands: string[]
+}) => {
+  return await client.fetch(CATEGORIES_QUERY, { categories, brands })
 }
 
 export const getIstaknutoProducts = async () => {

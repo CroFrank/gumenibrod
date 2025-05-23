@@ -1,6 +1,6 @@
-import ProductPageItem from "@/components/ProductPageItem"
-import { client } from "@/sanity/lib/client"
-import { SPECIFIC_PRODUCT_QUERY } from "@/sanity/lib/queries"
+import SingleProduct from "@/components/SingleProduct"
+import { getSpecificProduct } from "@/sanity/lib/client"
+import { notFound } from "next/navigation"
 
 type Props = {
   params: Promise<{
@@ -11,7 +11,9 @@ type Props = {
 export default async function ProductPage(props: Props) {
   const { slug } = await props.params
 
-  const product = await client.fetch(SPECIFIC_PRODUCT_QUERY, { slug })
-
-  return <ProductPageItem product={product} />
+  const product = await getSpecificProduct({ slug })
+  if (!product) {
+    notFound()
+  }
+  return <SingleProduct product={product} />
 }

@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { SanityAsset } from "@sanity/image-url/lib/types/types"
 import { Product } from "@/sanity/types"
-import { useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
 import AddToCartButton from "./AddToCartButton"
 
 type ProductCardProps = {
@@ -21,6 +21,7 @@ export default function ProductCard({
   product,
   disableSlider,
 }: ProductCardProps) {
+  const [showAllImages, setShowAllImages] = useState(false)
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1 },
@@ -30,9 +31,17 @@ export default function ProductCard({
     [product.images]
   )
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowAllImages(true)
+    }, 500) // 500 ms delay
+
+    return () => clearTimeout(timer) // cleanup
+  }, [])
+
   return (
     <div className="w-full max-w-sm h-[485px] bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col mx-auto">
-      <div className="relative">
+      <div className="relative pt-3">
         {/* Tags */}
         {product.featured?.includes("istaknuto") && (
           <div className="absolute top-4 right-4 bg-red-500 text-xs px-3 py-2 rounded-full z-20 transform rotate-12 animate-pulse font-medium text-white">
@@ -47,26 +56,25 @@ export default function ProductCard({
 
         {/* Image Section */}
         {(disableSlider && product.images?.[0]?.asset) ||
-        (!hasMultipleImages && product.images?.[0]?.asset) ? (
+        (!hasMultipleImages && product.images?.[0]?.asset) ||
+        (!showAllImages && product.images?.[0]?.asset) ? (
           <Image
             className="w-full h-64 object-contain object-center"
             src={urlFor(product.images?.[0]).url()}
             alt={product.title ?? "Slika proizvoda"}
             width={300}
             height={300}
-            loading="lazy"
           />
         ) : (
           <div ref={sliderRef} className="keen-slider w-30">
             {product.images?.map((image: SanityAsset) => (
               <Image
                 key={image._key}
-                className="w-full h-64 object-contain object-center keen-slider__slide"
+                className={`w-full h-64 object-contain object-center keen-slider__slide `}
                 src={urlFor(image.asset).url()}
                 alt={product.title ?? "Slika proizvoda"}
                 width={300}
                 height={300}
-                loading="lazy"
               />
             ))}
           </div>

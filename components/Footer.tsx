@@ -35,7 +35,10 @@ export default function Footer() {
           <div className="text-sm uppercase text-blue-600 font-bold">
             Informacije{" "}
           </div>
-          <Link className="my-3 block hover:underline" href="/">
+          <Link
+            className="my-3 block hover:underline"
+            href="/politika-privatnosti"
+          >
             Politika privatnosti
           </Link>
           <Link className="my-3 block hover:underline" href="/">
