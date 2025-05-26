@@ -21,7 +21,6 @@ export default function KontakInfo() {
       <div>
         <h3 className="font-semibold">Email:</h3>
         <p className="text-gray-600">gumenibrod@gmail.com </p>
-        <p className="text-gray-600">gumenibrodsp@gmail.com </p>
         <p className="text-gray-600">gumenibrodzg@gmail.com </p>
       </div>
     </>

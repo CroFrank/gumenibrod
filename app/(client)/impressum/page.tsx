@@ -31,7 +31,6 @@ export default function Impressum() {
             <p className="font-medium">E-mail adrese:</p>
             <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
               <li>gumenibrod@gmail.com</li>
-              <li>gumenibrodsp@gmail.com</li>
               <li>gumenibrodzg@gmail.com</li>
             </ul>
           </div>

@@ -5,6 +5,7 @@ type InputProps = {
   required?: boolean
   textarea?: boolean
   checkbox?: boolean
+  placeholder?: string
 }
 
 export default function Input({
@@ -14,6 +15,7 @@ export default function Input({
   required = true,
   textarea = false,
   checkbox = false,
+  placeholder = "",
 }: InputProps) {
   return (
     <>
@@ -25,6 +27,7 @@ export default function Input({
             aria-label="politika privatnosti"
             className="mr-2 w-5 h-5 bg-gray-700 border-gray-600 rounded"
             required
+            placeholder={placeholder}
           />
           <label className="text-gray-700">
             Slažem se s{" "}

@@ -3,14 +3,17 @@
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 
-import { FEATURED_PRODUCTS_QUERYResult } from "@/sanity/types"
 import ProductCard from "./ProductCard"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import {
+  NOVO_PRODUCTS_QUERYResult,
+  SPECIFIC_PRODUCT_QUERYResult,
+} from "@/sanity/types"
 
 type FeaturedProductsProps = {
-  productsIstaknuto?: FEATURED_PRODUCTS_QUERYResult
-  productsNovo?: FEATURED_PRODUCTS_QUERYResult
+  productsIstaknuto?: SPECIFIC_PRODUCT_QUERYResult
+  productsNovo?: NOVO_PRODUCTS_QUERYResult
 }
 
 export default function ProductsCarousel({

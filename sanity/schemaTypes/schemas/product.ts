@@ -32,6 +32,7 @@ export default defineType({
         list: [
           { title: "Kolibri", value: "kolibri" },
           { title: "Gala", value: "gala" },
+          { title: "Gelex", value: "gelex" },
           { title: "Galaxy", value: "galaxy" },
           { title: "Adventure", value: "adventure" },
         ],

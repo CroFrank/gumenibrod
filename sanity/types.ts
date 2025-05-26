@@ -91,7 +91,7 @@ export type Product = {
     _key: string;
   }>;
   price?: number;
-  brand?: "kolibri" | "gala" | "galaxy" | "adventure";
+  brand?: "kolibri" | "gala" | "gelex" | "galaxy" | "adventure";
   category?: "motorni" | "veslacki" | "kanu" | "katamaran";
   featured?: Array<string>;
 };
@@ -187,65 +187,7 @@ export type ALL_PRODUCTS_QUERYResult = Array<{
     _key: string;
   }>;
   price?: number;
-  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
-  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
-  featured?: Array<string>;
-}>;
-// Variable: CATEGORIES_QUERY
-// Query: *[_type == "product" &&  (    !defined($categories) || $categories == null || count($categories) == 0 || category in $categories  ) &&  (    !defined($brands) || $brands == null || count($brands) == 0 || brand in $brands  )]
-export type CATEGORIES_QUERYResult = Array<{
-  _id: string;
-  _type: "product";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  description?: string;
-  images?: Array<{
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-  }>;
-  price?: number;
-  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
-  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
-  featured?: Array<string>;
-}>;
-// Variable: FEATURED_PRODUCTS_QUERY
-// Query: *[_type == "product" && defined(featured) && count(featured) > 0]
-export type FEATURED_PRODUCTS_QUERYResult = Array<{
-  _id: string;
-  _type: "product";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  description?: string;
-  images?: Array<{
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-  }>;
-  price?: number;
-  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
+  brand?: "adventure" | "gala" | "galaxy" | "gelex" | "kolibri";
   category?: "kanu" | "katamaran" | "motorni" | "veslacki";
   featured?: Array<string>;
 }>;
@@ -274,18 +216,106 @@ export type SPECIFIC_PRODUCT_QUERYResult = {
     _key: string;
   }>;
   price?: number;
-  brand?: "adventure" | "gala" | "galaxy" | "kolibri";
+  brand?: "adventure" | "gala" | "galaxy" | "gelex" | "kolibri";
   category?: "kanu" | "katamaran" | "motorni" | "veslacki";
   featured?: Array<string>;
 } | null;
+// Variable: CATEGORIES_QUERY
+// Query: *[_type == "product" &&  (    !defined($categories) || $categories == null || count($categories) == 0 || category in $categories  ) &&  (    !defined($brands) || $brands == null || count($brands) == 0 || brand in $brands  )]
+export type CATEGORIES_QUERYResult = Array<{
+  _id: string;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  brand?: "adventure" | "gala" | "galaxy" | "gelex" | "kolibri";
+  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
+  featured?: Array<string>;
+}>;
+// Variable: ISTAKNUTO_PRODUCTS_QUERY
+// Query: *[_type == "product" && "istaknuto" in featured]
+export type ISTAKNUTO_PRODUCTS_QUERYResult = Array<{
+  _id: string;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  brand?: "adventure" | "gala" | "galaxy" | "gelex" | "kolibri";
+  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
+  featured?: Array<string>;
+}>;
+// Variable: NOVO_PRODUCTS_QUERY
+// Query: *[_type == "product" && "novo" in featured]
+export type NOVO_PRODUCTS_QUERYResult = Array<{
+  _id: string;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
+  price?: number;
+  brand?: "adventure" | "gala" | "galaxy" | "gelex" | "kolibri";
+  category?: "kanu" | "katamaran" | "motorni" | "veslacki";
+  featured?: Array<string>;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"product\"]": ALL_PRODUCTS_QUERYResult;
-    "*[_type == \"product\" &&\n  (\n    !defined($categories) || $categories == null || count($categories) == 0 || category in $categories\n  ) &&\n  (\n    !defined($brands) || $brands == null || count($brands) == 0 || brand in $brands\n  )\n]\n": CATEGORIES_QUERYResult;
-    "*[_type == \"product\" && defined(featured) && count(featured) > 0]": FEATURED_PRODUCTS_QUERYResult;
     "*[_type == \"product\" && slug.current == $slug][0]": SPECIFIC_PRODUCT_QUERYResult;
+    "*[_type == \"product\" &&\n  (\n    !defined($categories) || $categories == null || count($categories) == 0 || category in $categories\n  ) &&\n  (\n    !defined($brands) || $brands == null || count($brands) == 0 || brand in $brands\n  )\n]\n": CATEGORIES_QUERYResult;
+    "*[_type == \"product\" && \"istaknuto\" in featured]": ISTAKNUTO_PRODUCTS_QUERYResult;
+    "*[_type == \"product\" && \"novo\" in featured]": NOVO_PRODUCTS_QUERYResult;
   }
 }

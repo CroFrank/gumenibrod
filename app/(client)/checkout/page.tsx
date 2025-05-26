@@ -8,7 +8,7 @@ import Input from "@/components/Input"
 import { toast } from "sonner"
 
 export default function CheckoutPage() {
-  const { items, total } = useCartStore()
+  const { items, total, clearCart } = useCartStore()
   const [loading, setLoading] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -35,12 +35,13 @@ export default function CheckoutPage() {
         toast.error("Error! Pokušajte ponovno kasnije.")
       } else {
         toast.success("Hvala! Javit ćemo se ubrzo.")
+        formRef.current.reset()
+        clearCart()
       }
     } catch (error) {
       toast.error("Error! Pokušajte ponovno kasnije.")
       console.log(error)
     } finally {
-      formRef.current.reset()
       setLoading(false)
     }
   }
@@ -92,7 +93,13 @@ export default function CheckoutPage() {
         <Input label="Ime i prezime" input="ime" />
         <Input label="Vaš email" input="email" type="email" />
         <Input label="Mobitel" input="mobitel" required={false} />
-        <Input label="Napomene" input="napomene" required={false} textarea />
+        <Input
+          label="Napomene"
+          input="napomene"
+          required={false}
+          placeholder="npr. Vrsta poda, boja, dodatna oprema..."
+          textarea
+        />
         <Input checkbox />
 
         <Button

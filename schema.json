@@ -487,6 +487,10 @@
             },
             {
               "type": "string",
+              "value": "gelex"
+            },
+            {
+              "type": "string",
               "value": "galaxy"
             },
             {
