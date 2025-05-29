@@ -1,6 +1,6 @@
 "use client"
 
-import { faqs } from "@/lib/faqs"
+import { faqs } from "@/lib/data"
 import { useState } from "react"
 
 export default function FaqTable() {

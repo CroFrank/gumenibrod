@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard"
 import { Button } from "./ui/button"
 import { Product } from "@/sanity/types"
 import { getFilteredProducts } from "@/sanity/lib/client"
-import { initialFilters } from "@/lib/filters"
+import { initialFilters } from "@/lib/data"
 
 export default function FilterPage({ products }: { products: Product[] }) {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products)

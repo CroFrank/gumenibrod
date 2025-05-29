@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import { getAllProducts } from "@/sanity/lib/client"
 import Filter from "@/components/Filter"
 

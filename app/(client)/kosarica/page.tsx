@@ -15,12 +15,12 @@ export default function KosaricaPage() {
       <h1>Tvoja košarica</h1>
 
       {items.length === 0 ? (
-        <p className="text-gray-500 text-center">
-          Košarica je prazna.{" "}
-          <Link href="/proizvodi" className="text-blue-600">
-            Povratak na stranicu s proizvodima
-          </Link>
-        </p>
+        <div className="text-center pb-10">
+          <p className="text-gray-500">Košarica je prazna!</p>
+          <Button variant="link" className="text-blue-500">
+            <Link href="/proizvodi"> Povratak na stranicu s proizvodima</Link>
+          </Button>
+        </div>
       ) : (
         <div className="space-y-6">
           {items.map((item) => (

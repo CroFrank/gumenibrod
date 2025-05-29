@@ -1,6 +1,6 @@
 export default function PolitikaPrivatnostiPage() {
   return (
-    <section className="px-4 py-12 flex flex-col items-center bg-gray-50 pt-40">
+    <section className="px-4 py-12 flex flex-col items-center pt-40">
       <h1>POLITIKA PRIVATNOSTI</h1>
       <div className="w-full max-w-7xl bg-white p-8 rounded-2xl shadow-md">
         <p className="text-lg mb-6">

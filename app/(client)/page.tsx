@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import { getIstaknutoProducts, getNovoProducts } from "@/sanity/lib/client"
 import About from "../../components/About"
 import HomePageHero from "../../components/HomePageHero"
@@ -11,22 +13,17 @@ export default async function Home() {
   return (
     <>
       <HomePageHero />
-      <main>
-        <section className="pt-16 pb-12">
-          <h2>Istaknuto</h2>
-          <ProductsCarousel productsIstaknuto={productsIstaknuto} />
-        </section>
-
-        <section className="bg-gray-100 pt-16 pb-12">
-          <h2>Novo u ponudi</h2>
-          <ProductsCarousel productsNovo={productsNovo} />
-        </section>
-
-        <section className="py-20">
-          <About />
-        </section>
-        <Brands />
-      </main>
+      <ProductsCarousel
+        productsIstaknuto={productsIstaknuto}
+        heading="Istaknuto"
+      />
+      <ProductsCarousel
+        productsNovo={productsNovo}
+        bg={true}
+        heading="Novo u ponudi"
+      />
+      <About />
+      <Brands />
     </>
   )
 }
