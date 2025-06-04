@@ -1,4 +1,4 @@
-export const revalidate = 60
+export const revalidate = 3600
 
 import { getAllProducts } from "@/sanity/lib/client"
 import Filter from "@/components/Filter"

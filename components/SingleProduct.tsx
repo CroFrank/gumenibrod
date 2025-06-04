@@ -9,7 +9,7 @@ export default function SingleProduct({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1)
 
   return (
-    <div className="bg-gray-100 py-8 pt-30">
+    <div className="py-8 pt-30">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-wrap -mx-4">
           {/* Product Images */}

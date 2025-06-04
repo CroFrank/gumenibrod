@@ -1,4 +1,4 @@
-export const revalidate = 60
+export const revalidate = 3600
 
 import { getIstaknutoProducts, getNovoProducts } from "@/sanity/lib/client"
 import About from "../../components/About"

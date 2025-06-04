@@ -8,8 +8,8 @@ type Props = {
   }>
 }
 
-export default async function ProductPage(props: Props) {
-  const { slug } = await props.params
+export default async function ProductPage({ params }: Props) {
+  const { slug } = await params
 
   const product = await getSpecificProduct({ slug })
   if (!product) {
