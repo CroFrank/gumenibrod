@@ -12,7 +12,6 @@ export default function HomePageHero() {
         muted
         playsInline
         aria-hidden="true"
-        controls
         preload="metadata"
         poster="/videos/thumbnail.jpg"
       >

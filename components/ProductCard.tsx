@@ -22,6 +22,13 @@ export default function ProductCard({
   disableSlider,
 }: ProductCardProps) {
   const [showAllImages, setShowAllImages] = useState(false)
+
+  const mainImg = product.images?.[0]?.asset
+    ? urlFor(product.images[0]).url()
+    : "/brod.png"
+
+  const imageCount = product.images?.length || 0
+
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1 },
@@ -60,24 +67,43 @@ export default function ProductCard({
         (!showAllImages && product.images?.[0]?.asset) ? (
           <Image
             className="w-full h-64 object-contain object-center"
-            src={urlFor(product.images?.[0]).url()}
+            src={mainImg}
             alt={product.title ?? "Slika proizvoda"}
             width={300}
             height={300}
           />
-        ) : (
+        ) : imageCount > 0 ? (
           <div ref={sliderRef} className="keen-slider w-30">
-            {product.images?.map((image: SanityAsset) => (
-              <Image
-                key={image._key}
-                className={`w-full h-64 object-contain object-center keen-slider__slide `}
-                src={urlFor(image.asset).url()}
-                alt={product.title ?? "Slika proizvoda"}
-                width={300}
-                height={300}
-              />
-            ))}
+            {product.images?.map((image: SanityAsset) =>
+              image?.asset ? (
+                <Image
+                  key={image._key}
+                  className="w-full h-64 object-contain object-center keen-slider__slide"
+                  src={urlFor(image.asset).url()}
+                  alt={product.title ?? "Slika proizvoda"}
+                  width={300}
+                  height={300}
+                />
+              ) : (
+                <Image
+                  key={image._key || Math.random()}
+                  className="w-full h-64 object-contain object-center keen-slider__slide"
+                  src="/brod.png"
+                  alt="Fallback slika"
+                  width={300}
+                  height={300}
+                />
+              )
+            )}
           </div>
+        ) : (
+          <Image
+            className="w-full h-64 object-contain object-center"
+            src="/brod.png"
+            alt="Fallback slika"
+            width={300}
+            height={300}
+          />
         )}
 
         {/* Arrows */}

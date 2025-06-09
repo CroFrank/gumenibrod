@@ -22,6 +22,8 @@ export default defineType({
       title: "Slike",
       type: "array",
       of: [{ type: "image" }],
+      validation: (Rule) =>
+        Rule.required().min(1).error("Bar jedna slika je obavezna"),
     }),
     defineField({ name: "price", title: "Cijena", type: "number" }),
     defineField({
