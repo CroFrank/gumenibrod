@@ -8,7 +8,13 @@ import Brands from "@/components/Brands"
 
 export default async function Home() {
   const productsIstaknuto = await getIstaknutoProducts()
+  // if (!productsIstaknuto || productsIstaknuto.length === 0) {
+  //   throw new Error("Nema dostupnih proizvoda.")
+  // }
   const productsNovo = await getNovoProducts()
+  // if (!productsNovo || productsNovo.length === 0) {
+  //   throw new Error("Nema dostupnih proizvoda.")
+  // }
 
   return (
     <>

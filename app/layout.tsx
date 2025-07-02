@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title:
-    "Gumeni Čamci i Oprema za Vodu | Kvaliteta i Sigurnost na Vodi - Gumeni brod",
+    "Gumeni čamci i oprema za vodu | Kvaliteta i sigurnost na vodi - Gumeni brod",
   description:
     "Kupite kvalitetne gumene čamce – motorne i veslačke, te opremu za vodene avanture. Veliki izbor, brza dostava, stručna podrška. Sve za bezbrižno uživanje na vodi!",
 }

@@ -47,7 +47,7 @@ export default function ProductCard({
   }, [])
 
   return (
-    <div className="w-full max-w-sm h-[485px] bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col mx-auto">
+    <div className="w-full max-w-sm h-[490px] bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col mx-auto">
       <div className="relative pt-3">
         {/* Tags */}
         {product.featured?.includes("istaknuto") && (

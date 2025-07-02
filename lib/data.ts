@@ -104,3 +104,10 @@ export const about = `Naša tvrtka Gumeni brod d.o.o. više od 10 godina prisutn
           plovilom. Našu kvalitetu i profesionalnost su prepoznala razna državna
           tijela, mjesna i javna samouprava te pravne i fizičke osobe u regiji
           koje imaju dugogodišnju suradnju s nama:`
+
+export const navLinks = [
+  { href: "/", label: "naslovnica" },
+  { href: "/proizvodi", label: "ponuda" },
+  { href: "/faq", label: "faq" },
+  { href: "/kontakt", label: "kontakt" },
+]

@@ -13,7 +13,7 @@ export default function HomePageHero() {
         playsInline
         aria-hidden="true"
         preload="metadata"
-        poster="/videos/thumbnail.jpg"
+        poster="video-preload-img.webp"
       >
         <source src="/hero-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.

@@ -13,7 +13,7 @@ export default function NotFound() {
             Stranica nije pronađena{" "}
           </p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Žao nam, stranica koju tražite ne postoji{" "}
+            Žao nam je, stranica koju tražite ne postoji{" "}
           </p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             Vratite se na početnu stranicu{" "}

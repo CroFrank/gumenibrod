@@ -1,4 +1,11 @@
 import FaqTable from "@/components/FaqTable"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Česta pitanja (FAQ) | Sve što trebate znati - Gumeni brod",
+  description:
+    "Odgovori na najčešća pitanja o gumenim čamcima, dostavi, jamstvu, održavanju i opremi. Informirajte se i kupujte s povjerenjem na Gumeni brod.",
+}
 
 export default function FaqPage() {
   return (

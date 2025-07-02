@@ -1,3 +1,11 @@
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Impressum | Podaci o tvrtki - Gumeni brod",
+  description:
+    "Službeni podaci o vlasniku web stranice Gumeni brod: naziv tvrtke, adresa, kontakt, OIB i ostale zakonski obvezne informacije.",
+}
+
 export default function Impressum() {
   return (
     <section className="px-4 py-12 flex flex-col items-center pt-40">

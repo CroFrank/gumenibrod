@@ -6,7 +6,7 @@ import SingleProductImage from "./SingleProductImage"
 import React, { useState } from "react"
 
 export default function SingleProduct({ product }: { product: Product }) {
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState("1")
 
   return (
     <div className="py-8 pt-30">
@@ -55,18 +55,27 @@ export default function SingleProduct({ product }: { product: Product }) {
                 Količina:
               </label>
               <input
-                type="number"
+                type="text"
+                inputMode="numeric"
                 id="quantity"
                 name="quantity"
                 min="1"
                 value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
+                onChange={(e) => {
+                  const val = e.target.value
+                  if (/^\d*$/.test(val)) {
+                    setQuantity(val)
+                  }
+                }}
                 className="w-12 text-center rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
             </div>
 
             <div className="flex space-x-4 mb-6">
-              <AddToCartButton product={product} quantity={quantity} />
+              <AddToCartButton
+                product={product}
+                quantity={parseInt(quantity || "1", 10)}
+              />
             </div>
           </div>
         </div>

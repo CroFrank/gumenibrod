@@ -4,11 +4,14 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, ShoppingCart } from "lucide-react"
 import { useCartStore } from "@/stores/useCartStore"
+import { usePathname } from "next/navigation"
+import { navLinks } from "@/lib/data"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const { items } = useCartStore()
 
+  const pathName = usePathname()
   return (
     <header className="bg-white/80 shadow-md fixed top-0 z-40 w-full backdrop-blur-sm py-4">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -19,18 +22,18 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 text-gray-700 tracking-wider uppercase">
-          <Link href="/" className="hover:text-blue-600">
-            naslovnica
-          </Link>
-          <Link href="/proizvodi" className="hover:text-blue-600">
-            ponuda
-          </Link>
-          <Link href="/faq" className="hover:text-blue-600">
-            faq
-          </Link>
-          <Link href="/kontakt" className="hover:text-blue-600">
-            kontakt
-          </Link>
+          {navLinks.map(({ href, label }) => {
+            const isActive = pathName === href || pathName === href + "/"
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`hover:text-blue-600 ${isActive ? "text-blue-600 font-semibold" : ""}`}
+              >
+                {label}
+              </Link>
+            )
+          })}
         </nav>
 
         {/* Right Side Icons */}
@@ -42,9 +45,11 @@ export default function Header() {
           </select>
           <Link className="relative" href="/kosarica">
             <ShoppingCart className="w-6 h-6 text-gray-700" />
-            <span className="absolute -top-2 -right-2 text-xs bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
-              {items.length}
-            </span>
+            {items.length > 0 && (
+              <span className="absolute -top-2 -right-2 text-xs bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
+                {items.length}
+              </span>
+            )}
           </Link>
 
           {/* Hamburger */}
@@ -58,34 +63,19 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden px-4 py-4 text-center">
           <nav className="flex flex-col gap-3 text-gray-700 tracking-wider uppercase">
-            <Link
-              href="/"
-              className=" hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              naslovnica
-            </Link>
-            <Link
-              href="/proizvodi"
-              className=" hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              ponuda
-            </Link>
-            <Link
-              href="/faq"
-              className=" hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              faq
-            </Link>
-            <Link
-              href="/kontakt"
-              className=" hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              kontakt
-            </Link>
+            {navLinks.map(({ href, label }) => {
+              const isActive = pathName === href || pathName === href + "/"
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`hover:text-blue-600 ${isActive ? "text-blue-600 font-semibold" : ""}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {label}
+                </Link>
+              )
+            })}
           </nav>
         </div>
       )}

@@ -85,11 +85,13 @@ export default function ProductsCarousel({
           ref={sliderRef}
           className="keen-slider container mx-auto overflow-hidden"
         >
-          {data.map((product: Product) => (
-            <div key={product._id} className="keen-slider__slide">
-              <ProductCard product={product} disableSlider />
-            </div>
-          ))}
+          {data
+            ? data.map((product: Product) => (
+                <div key={product._id} className="keen-slider__slide">
+                  <ProductCard product={product} disableSlider />
+                </div>
+              ))
+            : ""}
         </div>
       </div>
     </section>
