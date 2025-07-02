@@ -111,3 +111,11 @@ export const navLinks = [
   { href: "/faq", label: "faq" },
   { href: "/kontakt", label: "kontakt" },
 ]
+
+export const footerBrands = [
+  { name: "Kolibri", url: "https://kolibriboats.com/en/" },
+  { name: "Gala", url: "https://gala.boats/" },
+  { name: "Gelex", url: "#" },
+  { name: "Galaxy", url: "https://galaxy.boats/" },
+  { name: "Adventure", url: "https://www.adventure.kiev.ua/" },
+]
