@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "Česta pitanja (FAQ) | Sve što trebate znati - Gumeni brod",
   description:
     "Odgovori na najčešća pitanja o gumenim čamcima, dostavi, jamstvu, održavanju i opremi. Informirajte se i kupujte s povjerenjem na Gumeni brod.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://gumenibrod.hr/faq",
+  },
 }
 
 export default function FaqPage() {

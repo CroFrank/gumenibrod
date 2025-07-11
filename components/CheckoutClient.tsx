@@ -8,7 +8,8 @@ import Input from "@/components/Input"
 import { toast } from "sonner"
 import Link from "next/link"
 
-export default function CheckoutPage() {
+
+export default function CheckoutClient() {
   const { items, total, clearCart } = useCartStore()
   const [loading, setLoading] = useState(false)
   const [afterSuccess, setAfterSuccess] = useState(false)

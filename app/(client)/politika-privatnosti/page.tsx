@@ -1,3 +1,18 @@
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Politika privatnosti | Gumeni brod",
+  description:
+    "Saznajte kako Gumeni brod prikuplja, koristi i štiti vaše osobne podatke. Vaša privatnost nam je važna.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://gumenibrod.hr/politika-privatnosti",
+  },
+}
+
 export default function PolitikaPrivatnostiPage() {
   return (
     <section className="px-4 py-12 flex flex-col items-center pt-40">

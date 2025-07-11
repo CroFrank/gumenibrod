@@ -17,16 +17,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: "Proizvod nije pronađen | Gumeni brod",
       description: "Nažalost, traženi proizvod nije pronađen.",
-      robots: "noindex, nofollow",
+      robots: {
+        index: false,
+        follow: false,
+      },
     }
   }
-
   return {
     title: `${product.title} | ${product.brand} – Gumeni brod`,
     description: `Saznajte više o ${product.title}.`,
     openGraph: {
       title: product.title,
       description: `Saznajte više o ${product.title}.`,
+      url: `https://gumenibrod.hr/proizvodi/${product.slug}`,
     },
   }
 }

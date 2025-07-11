@@ -5,16 +5,17 @@ import About from "../../components/About"
 import HomePageHero from "../../components/HomePageHero"
 import ProductsCarousel from "../../components/ProductsCarousel"
 import Brands from "@/components/Brands"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://gumenibrod.hr",
+  },
+}
 
 export default async function Home() {
   const productsIstaknuto = await getIstaknutoProducts()
-  // if (!productsIstaknuto || productsIstaknuto.length === 0) {
-  //   throw new Error("Nema dostupnih proizvoda.")
-  // }
   const productsNovo = await getNovoProducts()
-  // if (!productsNovo || productsNovo.length === 0) {
-  //   throw new Error("Nema dostupnih proizvoda.")
-  // }
 
   return (
     <>

@@ -9,6 +9,13 @@ export const metadata: Metadata = {
     "Gumeni čamci Kolibri, Gala, Gelex i drugi | Motorni i veslački - Gumeni brod",
   description:
     "Veliki izbor gumenih čamaca renomiranih brendova: Kolibri, Gala, Gelex, Galaxy, Adventure i drugi. Motorni i veslački čamci te oprema za sigurnu plovidbu. Brza dostava i stručna podrška.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://gumenibrod.hr/proizvodi",
+  },
 }
 
 export default async function ProductsPage() {

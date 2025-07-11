@@ -6,7 +6,9 @@ export default function Footer() {
     <footer className="bg-gray-100 text-gray-800 pt-10">
       <div className="max-w-screen-lg px-4 sm:px-6 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
         <div className="p-5">
-          <h3>LOGO</h3>
+          <Link href="/" className="text-xl font-bold text-blue-600">
+            GB
+          </Link>
         </div>
 
         <div className="p-5">

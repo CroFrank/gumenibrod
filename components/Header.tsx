@@ -17,7 +17,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold text-blue-600">
-          LOGO
+          GB
         </Link>
 
         {/* Desktop Nav */}
@@ -38,11 +38,11 @@ export default function Header() {
 
         {/* Right Side Icons */}
         <div className="flex items-center gap-4">
-          <select className="text-sm border rounded px-2 py-1">
+          {/* <select className="text-sm border rounded px-2 py-1">
             <option value="en">EN</option>
             <option value="de">DE</option>
             <option value="hr">HR</option>
-          </select>
+          </select> */}
           <Link className="relative" href="/kosarica">
             <ShoppingCart className="w-6 h-6 text-gray-700" />
             {items.length > 0 && (
