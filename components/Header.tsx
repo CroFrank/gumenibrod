@@ -18,6 +18,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="text-xl font-bold text-blue-600">
           GB
+          {/* <img src="/apple-touch-icon.png" alt="" height={50} width={50} /> */}
         </Link>
 
         {/* Desktop Nav */}
