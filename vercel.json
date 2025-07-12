@@ -1,47 +1,201 @@
 {
   "redirects": [
-    {
-      "source": "/gumenjaci.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/katalog.html",
-      "destination": "/",
-      "permanent": true
-    },
+    { "source": "/gumenjaci.html", "destination": "/", "permanent": true },
+    { "source": "/katalog.html", "destination": "/", "permanent": true },
     {
       "source": "/asortiman-adventure.html",
       "destination": "/",
       "permanent": true
     },
-    {
-      "source": "/gumeni-camci.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/adventure.pdf",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/kolibri.pdf",
-      "destination": "/",
-      "permanent": true
-    },
+    { "source": "/gumeni-camci.html", "destination": "/", "permanent": true },
+    { "source": "/adventure.pdf", "destination": "/", "permanent": true },
+    { "source": "/kolibri.pdf", "destination": "/", "permanent": true },
     {
       "source": "/apartmani.gumenibrod.hr",
       "destination": "/",
       "permanent": true
     },
+    { "source": "/galerija.html", "destination": "/", "permanent": true },
+    { "source": "/kontakt.html", "destination": "/", "permanent": true },
     {
-      "source": "/galerija.html",
+      "source": "/gumeni-camci/veslacki-super-light.html",
+      "destination": "/",
+      "permanent": true
+    },
+    { "source": "/asortiman-gala.html", "destination": "/", "permanent": true },
+    { "source": "/gumeni-brodovi.html", "destination": "/", "permanent": true },
+    {
+      "source": "/asortiman-motori.html",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/kontakt.html",
+      "source": "/asortiman-adventure/v650.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/v550.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/v450.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/v380.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/v500.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/scout.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/pedaline.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/v610.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/gumenjaci.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/arta.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/katalog.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/kajak.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/katalog.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/dodatna-oprema.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/motor-standard.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/veslacki-pro.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/rkm-250.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/master-2.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/master-1.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-motori/motori-motorguide.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/v345-v250.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/rkm-350.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/rib-serija.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/motor-light.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-motori/motor-suzuki.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/travel-1.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-motori/motori-mercury.",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/motor-pro.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-motori/motori-tohatsu.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/veslacki-standard.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure/travel-2.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/motor-sea-line.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-motori/elektricni-motori-flover.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci/classic-juk-serija.html",
       "destination": "/",
       "permanent": true
     }
