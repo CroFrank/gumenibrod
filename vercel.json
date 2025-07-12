@@ -1,0 +1,49 @@
+{
+  "redirects": [
+    {
+      "source": "/gumenjaci.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/katalog.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/asortiman-adventure.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gumeni-camci.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/adventure.pdf",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/kolibri.pdf",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/apartmani.gumenibrod.hr",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/galerija.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/kontakt.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
